@@ -1,13 +1,37 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-  //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-  // to see how IntelliJ IDEA suggests fixing it.
-  IO.println(String.format("Hello and welcome!"));
+import java.util.Scanner;
 
-  for (int i = 1; i <= 5; i++) {
-    //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-    // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-    IO.println("i = " + i);
-  }
+public class main {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Ойыншының атын жаз: ");
+        String name = scanner.nextLine();
+
+        System.out.print("Ойыншының жасын жаз: ");
+        int age = scanner.nextInt();
+
+        Player player = new Player(name, age, "Шабуылшы");
+
+        System.out.println("Ойыншы туралы ақпарат:");
+        player.displayInfo();
+
+        Sport football = new Sport("Футбол", 11);
+        Player player1 = new Player("Дастан Сатпаев", 17, "Шабуылшы");
+        Player player2 = new Player("Темірлан Анарбеков", 22, "Қақпашы");
+
+        SportsClub club = new SportsClub("Aтырау FC", "Атырау", football);
+
+        club.displayInfo();
+        player1.displayInfo();
+        player2.displayInfo();
+
+        if (player1.getAge() > player2.getAge()) {
+            System.out.println(player1.getName() + " Жасы үлкен келесі ойыншыдан- " + player2.getName());
+        } else {
+            System.out.println(player2.getName() + " Жасы үлкен келесі ойыншыдан- " + player1.getName());
+        }
+
+        scanner.close();
+    }
 }
